@@ -7,6 +7,10 @@ settings:
 importers:
 
   .:
+    dependencies:
+      '@tabler/icons-svelte':
+        specifier: ^3.31.0
+        version: 3.31.0(svelte@5.28.2)
     devDependencies:
       '@sveltejs/adapter-auto':
         specifier: ^6.0.0
@@ -346,6 +350,14 @@ packages:
     peerDependencies:
       svelte: ^5.0.0
       vite: ^6.0.0
+
+  '@tabler/icons-svelte@3.31.0':
+    resolution: {integrity: sha512-tbsfitMdr+IQrEnEzfz//VGBqxh/H79gXzIprdI4N8KSqfaNGHKN6eO4BvgxoRp2FREeMjrD5Xf/ZwDRFlUraQ==}
+    peerDependencies:
+      svelte: '>=3 <6 || >=5.0.0-next.0'
+
+  '@tabler/icons@3.31.0':
+    resolution: {integrity: sha512-dblAdeKY3+GA1U+Q9eziZ0ooVlZMHsE8dqP0RkwvRtEsAULoKOYaCUOcJ4oW1DjWegdxk++UAt2SlQVnmeHv+g==}
 
   '@tailwindcss/node@4.1.5':
     resolution: {integrity: sha512-CBhSWo0vLnWhXIvpD0qsPephiaUYfHUX3U9anwDaHZAeuGpTiB3XmsxPAN6qX7bFhipyGBqOa1QYQVVhkOUGxg==}
@@ -945,6 +957,13 @@ snapshots:
       vitefu: 1.0.6(vite@6.3.5(jiti@2.4.2)(lightningcss@1.29.2))
     transitivePeerDependencies:
       - supports-color
+
+  '@tabler/icons-svelte@3.31.0(svelte@5.28.2)':
+    dependencies:
+      '@tabler/icons': 3.31.0
+      svelte: 5.28.2
+
+  '@tabler/icons@3.31.0': {}
 
   '@tailwindcss/node@4.1.5':
     dependencies:

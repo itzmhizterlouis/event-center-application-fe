@@ -26,5 +26,8 @@
 		"onlyBuiltDependencies": [
 			"esbuild"
 		]
+	},
+	"dependencies": {
+		"@tabler/icons-svelte": "^3.31.0"
 	}
 }

@@ -1,1 +1,12 @@
 @import 'tailwindcss';
+
+@font-face {
+  font-family: 'HankenGrotesk';
+  src: url('assets/fonts/HankenGrotesk.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@theme {
+    --font-sans: 'HankenGrotesk', sans-serif;
+}
