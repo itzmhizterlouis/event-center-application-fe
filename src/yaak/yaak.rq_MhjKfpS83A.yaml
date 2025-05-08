@@ -1,0 +1,47 @@
+type: http_request
+model: http_request
+id: rq_MhjKfpS83A
+createdAt: 2025-05-07T04:29:08.975383900
+updatedAt: 2025-05-08T12:29:59.321955100
+workspaceId: wk_HenjNWPqJj
+folderId: fl_5LLHHGZLR7
+authentication: {}
+authenticationType: null
+body:
+  text: |-
+    {
+      "phoneNumber": "<string>",
+      "isVendor": "<boolean>"
+    }
+bodyType: application/json
+description: ''
+headers:
+- enabled: true
+  name: Content-Type
+  value: application/json
+  id: null
+- enabled: true
+  name: Accept
+  value: '*/*'
+  id: null
+method: PUT
+name: Update user information
+sortPriority: 0.0
+url: ${[baseUrl]}/users
+urlParameters:
+- enabled: true
+  name: token
+  value: ${[ token ]}
+  id: fGZXC7dG5m
+- enabled: false
+  name: ''
+  value: ${[ faker.string.uuid() ]}
+  id: eKCWQxAd3X
+- enabled: false
+  name: email_address
+  value: ${[ faker.string.nanoid() ]}
+  id: 7r0YPNe37G
+- enabled: true
+  name: ''
+  value: ''
+  id: YNFtXbXFeB

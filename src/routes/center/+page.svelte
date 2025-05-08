@@ -11,6 +11,7 @@
         IconPhone,
         IconRosetteDiscountCheck
     } from "@tabler/icons-svelte";
+    import {fade} from "svelte/transition"
 </script>
 
 {#snippet ratings(rating: number)}
@@ -29,7 +30,7 @@
             {/each}
      </div>
 {/snippet}
-<main class="flex justify-center min-h-screen">
+<main class="flex justify-center min-h-screen" in:fade>
     <div class="space-y-16 py-8 md:w-10/12 md:space-y-22 lg:w-9/12  xl:w-7/12 xl:space-y-32">
         <div class="px-4 text-slate-700 space-y-8 lg:text-lg">
             <div class="">
@@ -50,12 +51,13 @@
             <p class="flex gap-2 font-semibold"><IconUsersGroup /> 500 Guests</p>
             {@render ratings(3)}
             <div class="flex gap-3">
-                <button
-                    class="inline-flex gap-1.5 bg-indigo-600 py-2 px-4 rounded-sm text-white hover:bg-indigo-400 font-medium focus:outline-0 focus:ring-2 focus:ring-offset-1 focus:ring-indigo-500 transition cursor-pointer items-center"
-                    ><IconBookmark/> Book Center</button
+                <a
+                    class="btn"
+                    href="/center/book"
+                    ><IconBookmark/> Book Center</a
                 >
                 <button
-                    class="inline-flex gap-1.5 py-2 px-4 rounded-sm text-indigo-800 hover:bg-indigo-100 font-medium border-indigo-800 border-2 focus:outline-0 focus:ring-2 focus:ring-offset-1 focus:ring-indigo-500 transition cursor-pointer items-center"
+                    class="outline"
                     ><IconPhone/> Contact</button
                 >
             </div>
@@ -79,9 +81,9 @@
             <div class="space-y-4 px-4 md:grid md:grid-cols-2 md:gap-1.5 xl:grid-cols-3 xl:gap-4">
                 {#each [1, 2, 3, 4, 5, 6, 7, 8] as _, index}
                     <img
-                        src="https://picsum.photos/seed/{index}/512"
+                        src="https://picsum.photos/seed/{index}/512/288"
                         alt=""
-                        class="rounded-lg md:size-84"
+                        class="rounded-lg object-cover aspect-video"
                     />
                 {/each}
             </div>

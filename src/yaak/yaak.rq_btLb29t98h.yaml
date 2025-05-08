@@ -1,0 +1,42 @@
+type: http_request
+model: http_request
+id: rq_btLb29t98h
+createdAt: 2025-05-07T04:29:09.002320600
+updatedAt: 2025-05-07T12:08:52.929298800
+workspaceId: wk_HenjNWPqJj
+folderId: fl_BndQp8VUNZ
+authentication: {}
+authenticationType: null
+body: {}
+bodyType: null
+description: ''
+headers:
+- enabled: true
+  name: Accept
+  value: '*/*'
+  id: null
+method: POST
+name: Create event center
+sortPriority: 2000.0
+url: ${[baseUrl]}/event-centers
+urlParameters:
+- enabled: true
+  name: name
+  value: <string>
+  id: null
+- enabled: true
+  name: description
+  value: <string>
+  id: null
+- enabled: true
+  name: address
+  value: <string>
+  id: null
+- enabled: true
+  name: amount
+  value: <long>
+  id: null
+- enabled: true
+  name: medias
+  value: '["<binary>","<binary>"]'
+  id: null
