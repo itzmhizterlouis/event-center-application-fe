@@ -2,14 +2,14 @@ type: http_request
 model: http_request
 id: rq_G2JbmNxsbK
 createdAt: 2025-05-09T03:21:51.118514
-updatedAt: 2025-05-10T16:33:36.153058500
+updatedAt: 2025-05-10T18:10:40.041659700
 workspaceId: wk_ZHy7kAJhmj
 folderId: fl_AGHwyKp8rK
 authentication:
   token: ${[ token ]}
 authenticationType: bearer
 body:
-  text: |-
+  text: |
     {
       "bookingDate": ${[ faker.date.future() ]},
       "message": "${[ faker.lorem.sentence() ]}"

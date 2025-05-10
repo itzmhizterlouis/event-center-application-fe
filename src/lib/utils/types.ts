@@ -3,6 +3,6 @@ export interface EventCenterData {
     amount: number;
     name: string;
     description: string;
-    address: {street: string, state: string, country: string}
+    address: {streetAddress: string, state: string, country: string}
     medias: FileList | string[];
 }

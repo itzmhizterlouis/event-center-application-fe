@@ -1,7 +1,55 @@
 <script lang="ts">
     import { IconMapPin, IconMessageCircleStar } from "@tabler/icons-svelte";
+    import {bookEventCenter} from "$lib";	
+    import {onMount} from "svelte";
+    import {goto} from "$app/navigation";
+
     let { data } = $props();
+
+    onMount(() => {
+        const token = localStorage.getItem("token");
+        if (!token) {
+            goto("/signup");
+        }
+    });
+
+
+    let message: string = $state("");
+    let date: string = $state("");
+
+    $inspect(date).with(function (_, value){
+        if (_ === "update")
+            console.log("Date: ", new Date(value).toISOString());
+    })
+
+    function validate(){
+        if (!date) {
+            alert("Please select a date");
+            return false;
+        }
+        if (!message) {
+            alert("Please enter a message");
+            return false;
+        }
+        return true;
+    }
+
+    function onclick(){
+        if (validate()) {
+            const token = localStorage.getItem("token");
+            bookEventCenter(token!, data.id!, {bookingDate: new Date(date).toISOString(), message})
+                .then((response) => {
+                    alert("Booking successful");
+                    goto(`/center/${data.id}`);
+                })
+                .catch((error) => {
+                    console.error(error);
+                    alert("An error occurred while booking");
+                });
+        }
+    }
 </script>
+
 
 <div class="justify-items-center">
     <div
@@ -32,14 +80,15 @@
                 class="input field-sizing-content"
                 placeholder="Select date"
                 min={new Date().toISOString().split("T")[0]}
+                bind:value={date}
             />
         </div>
         <div class="md:w-7/12 xl:w-6/12 space-y-2">
             <label for="message" class="block text-sm text-slate-700 mb-1">Additional Message (Optional)</label>
-            <textarea name="message" id="message" class="input h-36 resize-none field-sizing-content" placeholder="Enter any extra messages or requests here..."></textarea>
+            <textarea name="message" id="message" class="input h-36 resize-none field-sizing-content" placeholder="Enter any extra messages or requests here..." bind:value={message}></textarea>
         </div>
         <div class="space-x-2">
-            <button class="main-btn"
+            <button class="main-btn" {onclick}
                 ><IconMessageCircleStar />
                 <span class="lg:text-lg xl:text-xl">Book</span></button
             >

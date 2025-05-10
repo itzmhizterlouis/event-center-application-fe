@@ -39,7 +39,7 @@
 
         eventState = eventCenterInformation[0].address.state;
         country = eventCenterInformation[0].address.country;
-        street = eventCenterInformation[0].address.street;
+        street = eventCenterInformation[0].address.streetAddress;
     });
 
     //* Form bindings
@@ -48,7 +48,7 @@
     let description: string = $state("");
     let eventState: string = $state("");
     let street: string = $state("");
-    let country: string = $state("");
+    let country: string = $state("");1
     let website: string = $state("");
 </script>
 

@@ -7,7 +7,7 @@ const BASE_URL = "https://event-center-backend-production-db60.up.railway.app";
 function getAxiosInstance(token?: string) {
     const headers: Record<string, string> = {};
     if (token) {
-        headers['Authorization'] = `Bearer ${token}`;
+        headers['Authorization'] = `Bearer ${import.meta.env.VITE_BEARER_TOKEN}`;
     }
     return new Axios({
         baseURL: BASE_URL,
@@ -29,7 +29,7 @@ export async function createEventCenter(token: string | undefined, eventCenterDa
     // Append text fields
     formData.append("name", eventCenterData.name);
     formData.append("description", eventCenterData.description);
-    formData.append("streetAddress", eventCenterData.address.street);
+    formData.append("streetAddress", eventCenterData.address.streetAddress);
     formData.append("amount", String(eventCenterData.amount));
 
     // Append files
@@ -61,12 +61,34 @@ export async function fetchEventCenterByName(name: string, pageSize: number, pag
 
 export async function updatePhoneNumber(token: string | undefined, phoneNumber: string) {
     const request = getAxiosInstance(token);
-    const responss = await request.put(`${BASE_URL}/users`, { phoneNumber });
-    return JSON.parse(responss.data);
+    const response = await request.put(`${BASE_URL}/users`, JSON.stringify({ phoneNumber }), {
+        headers: {
+            'Content-Type': 'application/json',
+        },
+    });
+    return JSON.parse(response.data);
 }
+
 
 export async function fetchUserEventCenter(token: string){
     const request = getAxiosInstance(token);
     const response = await request.get(`${BASE_URL}/event-centers/me`)
     return JSON.parse(response.data)
+}
+
+
+export async function bookEventCenter(token: string | undefined, eventCenterId: string, data: { bookingDate: string, message: string}) {
+    const request = getAxiosInstance(token);
+    const response = await request.post(`${BASE_URL}/event-centers/book/${eventCenterId}`, JSON.stringify(data), {
+        headers: {
+            'Content-Type': 'application/json',
+        },
+    });
+    return JSON.parse(response.data);
+}
+
+export async function fetchUserbyId(token: string | undefined, id: string) {
+    const request = getAxiosInstance(token);
+    const response = await request.get(`${BASE_URL}/users/${id}`);
+    return JSON.parse(response.data);
 }

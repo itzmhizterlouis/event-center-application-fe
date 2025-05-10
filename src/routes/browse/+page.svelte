@@ -44,7 +44,14 @@
                     <div
                         class="p-6 space-y-8 bg-slate-50 border-1 border-slate-200 rounded-lg shadow-md"
                     >
-                        <img src={center.medias[0] as string} alt="" class=" shadow-sm aspect-video" loading="lazy"/>
+                        <img
+                            src={center.medias[0] as string}
+                            alt=""
+                            class="shadow-sm aspect-video"
+                            loading="lazy"
+                            width="1280"
+                            height="720"
+                        />
                         <div class="space-y-4">
                             <p class="text-lg font-semibold text-slate-900">
                                 {center.name}
