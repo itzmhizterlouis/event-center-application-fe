@@ -24,7 +24,7 @@
         description: string;
     };
 
-    let eventCenterInformation = $state() as EventCenterData;
+    let eventCenterInformation = $state() as EventCenterData[];
     $inspect(userInformation);
     $inspect(eventCenterInformation);
 
@@ -32,11 +32,14 @@
         token = localStorage.getItem("token")!;
         userInformation = await fetchUserInformation(token);
 
-        eventCenterInformation = await fetchUserEventCenter() as EventCenterData;
-        eventCenterInformation = eventCenterInformation[0];
-        name = eventCenterInformation.name;
+        eventCenterInformation = await fetchUserEventCenter(token) as EventCenterData[];
+        name = eventCenterInformation[0].name;
         email = userInformation.email;
-        description = eventCenterInformation.description;
+        description = eventCenterInformation[0].description;
+
+        eventState = eventCenterInformation[0].address.state;
+        country = eventCenterInformation[0].address.country;
+        street = eventCenterInformation[0].address.street;
     });
 
     //* Form bindings
@@ -44,7 +47,7 @@
     let email: string = $state("");
     let description: string = $state("");
     let eventState: string = $state("");
-    let city: string = $state("");
+    let street: string = $state("");
     let country: string = $state("");
     let website: string = $state("");
 </script>
@@ -137,7 +140,7 @@
                     class="input"
                     id="name"
                     disabled
-                    bind:value={eventCenterInformation.address.street}
+                    bind:value={street}
                 />
             </div>
             <div class="flex flex-col gap-2">
@@ -151,7 +154,7 @@
                     class="input"
                     id="name"
                     disabled
-                    bind:value={eventCenterInformation.address.state}
+                    bind:value={eventState}
                 />
             </div>
             <div class="flex flex-col gap-2">
@@ -165,6 +168,7 @@
                     class="input"
                     id="name"
                     disabled
+                    bind:value={country}
                 />
             </div>
             <div class="flex flex-col gap-2">
