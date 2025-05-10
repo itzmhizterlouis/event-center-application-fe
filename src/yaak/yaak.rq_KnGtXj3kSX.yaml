@@ -1,0 +1,19 @@
+type: http_request
+model: http_request
+id: rq_KnGtXj3kSX
+createdAt: 2025-05-10T08:25:50.565301800
+updatedAt: 2025-05-10T08:33:51.251816200
+workspaceId: wk_ZHy7kAJhmj
+folderId: fl_dJ9JJ59A8S
+authentication:
+  token: ''
+authenticationType: bearer
+body: {}
+bodyType: null
+description: ''
+headers: []
+method: GET
+name: Signup User
+sortPriority: -0.0001
+url: ${[ baseUrl ]}/sign-in
+urlParameters: []

@@ -1,13 +1,12 @@
 type: http_request
 model: http_request
-id: rq_pWSK8LUajr
-createdAt: 2025-05-07T04:29:08.991916600
-updatedAt: 2025-05-08T11:23:32.858292600
-workspaceId: wk_HenjNWPqJj
-folderId: fl_BndQp8VUNZ
-authentication:
-  token: ${[ token ]}
-authenticationType: bearer
+id: rq_7weVp7bLxn
+createdAt: 2025-05-09T03:21:51.097542400
+updatedAt: 2025-05-10T13:03:46.565843
+workspaceId: wk_ZHy7kAJhmj
+folderId: fl_AGHwyKp8rK
+authentication: {}
+authenticationType: null
 body: {}
 bodyType: null
 description: ''
@@ -18,18 +17,18 @@ headers:
   id: null
 method: GET
 name: Get all event centers
-sortPriority: 1000.0
+sortPriority: 3000.0
 url: ${[baseUrl]}/event-centers
 urlParameters:
 - enabled: true
   name: pageSize
   value: '10'
-  id: nmD58762rh
+  id: 32CaYaJHUF
 - enabled: true
   name: pageNumber
-  value: '1'
-  id: DdFUa3diWz
+  value: '0'
+  id: Q4duEjvfhq
 - enabled: true
   name: ''
   value: ''
-  id: BnGibWFrMJ
+  id: ThvNXvnnWD

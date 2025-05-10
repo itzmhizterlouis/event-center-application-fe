@@ -1,0 +1,60 @@
+type: http_request
+model: http_request
+id: rq_SRaNsYzsYJ
+createdAt: 2025-05-09T20:32:15.542086100
+updatedAt: 2025-05-09T21:01:59.325479900
+workspaceId: wk_ZHy7kAJhmj
+folderId: fl_AGHwyKp8rK
+authentication:
+  token: ${[ token ]}
+authenticationType: bearer
+body:
+  form:
+  - enabled: true
+    id: 2uJGvBby6K
+    name: name
+    value: Crimson Event Center
+  - enabled: true
+    id: BRxkeeta2t
+    name: description
+    value: Welcome to Crimson Event Center
+  - enabled: true
+    id: wTA8mqIRm0
+    name: streetAddress
+    value: ${[ faker.location.streetAddress() ]}
+  - enabled: true
+    id: RmynGEPdqn
+    name: state
+    value: ${[ faker.location.state() ]}
+  - enabled: true
+    id: 6jVwQ3E2Rr
+    name: city
+    value: ${[ faker.location.city() ]}
+  - enabled: true
+    id: 8g4z3P4WYu
+    name: amount
+    value: '23000'
+  - enabled: true
+    file: C:\Users\hp\Downloads\Screenshot_8-5-2025_1556_localhost.jpeg
+    id: niGiQneUtR
+    name: medias
+  - enabled: true
+    id: MGUYxBjW64
+    name: ''
+    value: ''
+  - enabled: true
+    id: XNkvJMFZ9C
+    name: ''
+    value: ''
+bodyType: multipart/form-data
+description: ''
+headers:
+- enabled: true
+  name: Content-Type
+  value: multipart/form-data
+  id: QTQmKQT0Fn
+method: POST
+name: Create event center
+sortPriority: 4000.0
+url: ${[ baseUrl ]}/event-centers
+urlParameters: []

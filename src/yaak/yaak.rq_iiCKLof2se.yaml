@@ -1,0 +1,19 @@
+type: http_request
+model: http_request
+id: rq_iiCKLof2se
+createdAt: 2025-05-10T10:45:42.127103800
+updatedAt: 2025-05-10T15:19:35.289452300
+workspaceId: wk_ZHy7kAJhmj
+folderId: fl_AGHwyKp8rK
+authentication:
+  token: ${[ token ]}
+authenticationType: bearer
+body: {}
+bodyType: null
+description: ''
+headers: []
+method: GET
+name: Get a user event center
+sortPriority: 999.9999
+url: ${[ baseUrl ]}/event-centers/me
+urlParameters: []

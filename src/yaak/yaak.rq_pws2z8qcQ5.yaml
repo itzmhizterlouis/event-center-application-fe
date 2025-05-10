@@ -1,0 +1,31 @@
+type: http_request
+model: http_request
+id: rq_pws2z8qcQ5
+createdAt: 2025-05-09T03:21:51.071350700
+updatedAt: 2025-05-10T12:42:09.354997400
+workspaceId: wk_ZHy7kAJhmj
+folderId: fl_dJ9JJ59A8S
+authentication:
+  token: ${[ token ]}
+authenticationType: bearer
+body:
+  text: |-
+    {
+      "phoneNumber": "08143378663"
+    }
+bodyType: application/json
+description: ''
+headers:
+- enabled: true
+  name: Content-Type
+  value: application/json
+  id: null
+- enabled: true
+  name: Accept
+  value: '*/*'
+  id: null
+method: PUT
+name: Update user profile (auth)
+sortPriority: 0.0
+url: ${[baseUrl]}/users
+urlParameters: []

@@ -1,5 +1,6 @@
 <script lang="ts">
     import { IconMapPin, IconMessageCircleStar } from "@tabler/icons-svelte";
+    let { data } = $props();
 </script>
 
 <div class="justify-items-center">
@@ -7,7 +8,7 @@
         class="px-4 py-8 space-y-6 w-full md:max-w-9/12 xl:max-w-6/12 xl:space-y-10"
     >
         <img
-            src=""
+            src={data.medias[0] as string}
             alt="banner"
             class="shadow-sm aspect-video rounded-md lg:h-64 lg:w-full"
         />
@@ -15,16 +16,28 @@
             <h2
                 class="text-xl font-bold tracking-wide text-slate-900 lg:text-2xl xl:text-3xl"
             >
-                Crimson Events
+                {data.name}
             </h2>
             <p class="flex gap-1 text-slate-600 lg:text-lg">
-                <IconMapPin /> Lagos
+                <IconMapPin /> {data.address.state}
             </p>
         </div>
         <p class="text-lg text-slate-800 lg:text-xl">
             Are you sure you want to book this event center?
         </p>
-        <div class="md:w-7/12 xl:w-6/12"><textarea name="" id="message" class="input h-36 resize-none field-sizing-content" placeholder="Extra messages to send"></textarea></div>
+        <div class="w-9/12 md:w-5/12 xl:w-3/12 space-y-2">
+            <p class="text-slate-700">Date of booking</p>
+            <input
+                type="date"
+                class="input field-sizing-content"
+                placeholder="Select date"
+                min={new Date().toISOString().split("T")[0]}
+            />
+        </div>
+        <div class="md:w-7/12 xl:w-6/12 space-y-2">
+            <label for="message" class="block text-sm text-slate-700 mb-1">Additional Message (Optional)</label>
+            <textarea name="message" id="message" class="input h-36 resize-none field-sizing-content" placeholder="Enter any extra messages or requests here..."></textarea>
+        </div>
         <div class="space-x-2">
             <button class="main-btn"
                 ><IconMessageCircleStar />

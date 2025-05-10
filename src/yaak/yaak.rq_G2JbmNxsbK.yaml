@@ -1,0 +1,40 @@
+type: http_request
+model: http_request
+id: rq_G2JbmNxsbK
+createdAt: 2025-05-09T03:21:51.118514
+updatedAt: 2025-05-10T16:33:36.153058500
+workspaceId: wk_ZHy7kAJhmj
+folderId: fl_AGHwyKp8rK
+authentication:
+  token: ${[ token ]}
+authenticationType: bearer
+body:
+  text: |-
+    {
+      "bookingDate": ${[ faker.date.future() ]},
+      "message": "${[ faker.lorem.sentence() ]}"
+    }
+bodyType: application/json
+description: ''
+headers:
+- enabled: true
+  name: Content-Type
+  value: application/json
+  id: null
+- enabled: true
+  name: Accept
+  value: '*/*'
+  id: null
+method: POST
+name: Book event center
+sortPriority: 2000.0
+url: ${[baseUrl]}/event-centers/book/:eventCenterId
+urlParameters:
+- enabled: true
+  name: :eventCenterId
+  value: b096a7e8-c510-41b2-82d7-81ab4a1cc7ff
+  id: aEYRAIdHKV
+- enabled: true
+  name: ''
+  value: ''
+  id: xxcEvZqffz

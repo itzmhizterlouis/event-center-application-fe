@@ -1,0 +1,10 @@
+type: workspace
+model: workspace
+id: wk_ZHy7kAJhmj
+createdAt: 2025-05-09T03:21:51.020868700
+updatedAt: 2025-05-09T03:23:52
+name: Event-Center-fe
+description: ''
+settingValidateCertificates: true
+settingFollowRedirects: true
+settingRequestTimeout: 0

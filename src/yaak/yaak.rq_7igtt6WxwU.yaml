@@ -1,0 +1,38 @@
+type: http_request
+model: http_request
+id: rq_7igtt6WxwU
+createdAt: 2025-05-09T03:21:51.150938400
+updatedAt: 2025-05-10T15:29:20.950309
+workspaceId: wk_ZHy7kAJhmj
+folderId: fl_AGHwyKp8rK
+authentication: {}
+authenticationType: null
+body: {}
+bodyType: null
+description: ''
+headers:
+- enabled: true
+  name: Accept
+  value: '*/*'
+  id: null
+method: GET
+name: Get all event centers
+sortPriority: 0.0
+url: ${[baseUrl]}/event-centers/search
+urlParameters:
+- enabled: true
+  name: pageSize
+  value: '10'
+  id: 98dbRzY0fD
+- enabled: true
+  name: pageNumber
+  value: '0'
+  id: w2qTbkfccK
+- enabled: false
+  name: key
+  value: ''
+  id: 3fJc8pFyJt
+- enabled: true
+  name: ''
+  value: ''
+  id: P6vDy7tuz8

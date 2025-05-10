@@ -1,0 +1,30 @@
+type: http_request
+model: http_request
+id: rq_UQi49KN5kB
+createdAt: 2025-05-09T03:21:51.134096800
+updatedAt: 2025-05-10T15:19:33.465347400
+workspaceId: wk_ZHy7kAJhmj
+folderId: fl_AGHwyKp8rK
+authentication: {}
+authenticationType: null
+body: {}
+bodyType: null
+description: ''
+headers:
+- enabled: true
+  name: Accept
+  value: '*/*'
+  id: null
+method: GET
+name: Get event center by userid
+sortPriority: 499.99994
+url: ${[baseUrl]}/event-centers/:eventCenterId
+urlParameters:
+- enabled: true
+  name: :eventCenterId
+  value: b096a7e8-c510-41b2-82d7-81ab4a1cc7ff
+  id: BnCEWEgXrW
+- enabled: true
+  name: ''
+  value: ''
+  id: S7y747U07F

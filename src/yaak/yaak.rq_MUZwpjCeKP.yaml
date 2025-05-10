@@ -1,0 +1,23 @@
+type: http_request
+model: http_request
+id: rq_MUZwpjCeKP
+createdAt: 2025-05-09T03:21:51.085407600
+updatedAt: 2025-05-09T03:28:05.493190100
+workspaceId: wk_ZHy7kAJhmj
+folderId: fl_dJ9JJ59A8S
+authentication:
+  token: ${[ token ]}
+authenticationType: bearer
+body: {}
+bodyType: null
+description: ''
+headers:
+- enabled: true
+  name: Accept
+  value: '*/*'
+  id: null
+method: GET
+name: Get logged in user (auth)
+sortPriority: 0.0
+url: ${[baseUrl]}/users/logged-in-user
+urlParameters: []

@@ -9,8 +9,33 @@
         IconFlag,
     } from "@tabler/icons-svelte";
     import {fade} from "svelte/transition"
+    import {fetchUserInformation, fetchUserEventCenter} from "$lib";
+    import {onMount} from "svelte";
+
+    let token: string;
+
+    let userInformation = $state() as Promise<any>
+    $inspect(userInformation)
+
+    onMount(function (){
+        token = localStorage.getItem("token")!;
+        userInformation = fetchUserInformation(token);
+    })
+    
+
+    //* Form bindings
+    let name: string = $state("");
+    let email: string = $state("");
+    let description: string = $state("");  
+    let eventState: string = $state("");
+    let city: string = $state("");
+    let country: string = $state("");
+    let website: string = $state("");
+
+
 </script>
 
+    {#await userInformation then data}
     <!--* Main Section  -->
     <main class="space-y-12 px-4 py-8 w-full md:w-9/12 lg:h-screen lg:overflow-y-auto lg:w-full lg:justify-items-center" in:fade>
         <div
@@ -35,6 +60,7 @@
                         class="input"
                         id="name"
                         disabled
+                        bind:value={name}
                     />
                 </div>
                 <div class="flex flex-col gap-2">
@@ -45,6 +71,7 @@
                         class="input"
                         id="email"
                         disabled
+                        bind:value={email}
                     />
                 </div>
                 <div class="flex flex-col gap-2">
@@ -56,6 +83,7 @@
                         class="input block h-36"
                         id="Description"
                         disabled
+                        bind:value={description}
                     ></textarea>
                 </div>
                 <div class="flex justify-end">
@@ -128,3 +156,4 @@
             </div>
         </div>
     </main>
+    {/await}
