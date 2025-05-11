@@ -15,6 +15,7 @@
         type EventCenterData,
     } from "$lib";
     import { onMount } from "svelte";
+    import { goto } from "$app/navigation";
 
     let token: string;
 
@@ -28,11 +29,19 @@
     $inspect(userInformation);
     $inspect(eventCenterInformation);
 
+    let isLoading: boolean = $state(true)
+
     onMount(async () => {
         token = localStorage.getItem("token")!;
         userInformation = await fetchUserInformation(token);
 
         eventCenterInformation = await fetchUserEventCenter(token) as EventCenterData[];
+
+        if (eventCenterInformation.length === 0) {
+            goto("/setup")
+        } else {
+            isLoading = false	
+        }
         name = eventCenterInformation[0].name;
         email = userInformation.email;
         description = eventCenterInformation[0].description;
@@ -53,6 +62,9 @@
 </script>
 
 <!--* Main Section  -->
+{#if isLoading}
+    <div class="bg-white w-full h-full absolute"></div>
+{/if}
 <main
     class="space-y-12 px-4 py-8 w-full md:w-9/12 lg:h-screen lg:overflow-y-auto lg:w-full lg:justify-items-center"
     in:fade

@@ -5,4 +5,5 @@ export interface EventCenterData {
     description: string;
     address: {streetAddress: string, state: string, country: string}
     medias: FileList | string[];
+    phoneNumber?: string;
 }

@@ -69,26 +69,10 @@
                     <a class="btn" href="/center/{center.id}/book"
                         ><IconBookmark /> Book Center</a
                     >
-                    <button class="outline"><IconPhone /> Contact</button>
+                    <a href="tel:{center.phoneNumber}" class="underline text-indigo-800">{center.phoneNumber}</a>
                 </div>
             </div>
 
-            <div
-                class="px-3 space-y-4 text-indigo-800 text-lg md:max-w-9/12 lg:max-w-7/12 xl:text-lg"
-            >
-                <div
-                    class="bg-indigo-50 px-4 py-8 rounded-lg space-y-6 md:px-6 md:py-12 lg:px-10 lg:py-12"
-                >
-                    <p class="flex gap-2 items-center"><IconMapPin /> Lagos</p>
-                    <p class="flex gap-2 items-center"><IconWifi /> No Wi-Fi</p>
-                    <p class="flex gap-2 items-center underline">
-                        <IconWorldWww />
-                        <span class="flex items-center"
-                            >Website <IconArrowUpRight class="size-4" /></span
-                        >
-                    </p>
-                </div>
-            </div>
 
             <div class="space-y-8">
                 <h2 class="text-2xl font-bold px-4 mb-12">Gallery</h2>
@@ -99,7 +83,7 @@
                         <img
                             src={image}
                             alt=""
-                            class="rounded-lg object-cover aspect-video"
+                            class="rounded-lg object-cover aspect-video bg-red-500"
                         />
                     {/each}
                 </div>

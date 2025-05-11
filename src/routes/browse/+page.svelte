@@ -65,7 +65,6 @@
                         </div>
                         <div class="flex gap-4">
                             <a href="/center/{center.id}" class="btn"><IconEye /> Visit</a>
-                            <button class="outline"><IconStar /> Star</button>
                         </div>
                     </div>
                 {/each}

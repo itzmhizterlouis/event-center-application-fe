@@ -58,7 +58,7 @@
         <img
             src={data.medias[0] as string}
             alt="banner"
-            class="shadow-sm aspect-video rounded-md lg:h-64 lg:w-full"
+            class="shadow-sm aspect-video rounded-md lg:h-64 lg:w-full object-cover"
         />
         <div class="space-y-2">
             <h2

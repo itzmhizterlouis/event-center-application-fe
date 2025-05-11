@@ -2,9 +2,9 @@
     import { IconArrowRight, IconArrowLeft } from "@tabler/icons-svelte";
     import { fly } from "svelte/transition";
     import { createEventCenter } from "$lib";
-    import {onMount} from "svelte";
-    import {fetchUserInformation} from "$lib";
-    import {goto} from "$app/navigation";
+    import { onMount } from "svelte";
+    import { fetchUserInformation } from "$lib";
+    import { goto } from "$app/navigation";
 
     let currentStep: number = $state(1);
 
@@ -17,42 +17,46 @@
     let amount: number = $state(0);
     let files: FileList | null = $state(null);
 
+    let isSubmitting: boolean = $state(false);
+
     const MAX_STEP: number = 4;
     const MIN_STEP: number = 1;
 
-    let token = ""
+    let token = "";
     function validateForm() {}
 
-    onMount(function (){
+    onMount(function () {
         const _token = localStorage.getItem("token");
         if (!_token) {
             goto("/signup");
         } else {
             token = _token;
             fetchUserInformation(_token).then((res) => {
-                if (res.status == 401) {
+                if (!res.userId) {
                     localStorage.removeItem("token");
                     goto("/signup");
                 }
-                console.log(res.phoneNumber)
-                if (!res.phoneNumber){
-                    goto(`/signin?continue=${token}`)
+                console.log(res.phoneNumber);
+                if (!res.phoneNumber) {
+                    goto(`/signin?continue=${token}`);
                 }
             });
         }
-    })
+    });
 
     async function submit() {
+        isSubmitting = true;
         const data = {
             amount,
             name,
             description,
-            address: { street, state: eventState, country },
-            medias: files!
+            address: { streetAddress: street, state: eventState, country },
+            medias: files!,
         };
 
-        const response = await createEventCenter(token, data);
-        console.log(response);
+        createEventCenter(token, data).then(function (response) {
+            goto(`/center/${response.id}`);
+        });
     }
 
     onMount(() => {
@@ -67,7 +71,6 @@
             });
         }
     });
-
 </script>
 
 <div class="h-screen justify-items-center px-4">
@@ -172,11 +175,15 @@
                         />
                     </div>
                 {:else if currentStep == 4}
-                <div class="space-y-4">
-                    <h2 class="text-slate-700 font-semibold text-xl xl:text-2xl">Banner Image</h2>
-                    <p>Insert the banner image for your event center</p>
-                    <input type="file" class="file-input" bind:files={files} />
-                </div>
+                    <div class="space-y-4">
+                        <h2
+                            class="text-slate-700 font-semibold text-xl xl:text-2xl"
+                        >
+                            Banner Image
+                        </h2>
+                        <p>Insert the banner image for your event center</p>
+                        <input type="file" class="file-input" bind:files />
+                    </div>
                 {/if}
 
                 <!--*Navigation buttons  -->
@@ -190,7 +197,11 @@
                             }}>Next <IconArrowRight /></button
                         >
                     {:else}
-                        <button class="btn" onclick={submit}>Submit</button>
+                        <button
+                            class="btn"
+                            onclick={submit}
+                            disabled={isSubmitting}>Submit</button
+                        >
                     {/if}
 
                     {#if currentStep != MIN_STEP}
@@ -208,7 +219,6 @@
         {/key}
     </div>
 </div>
-
 
 <style>
     @reference "tailwindcss";

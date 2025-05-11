@@ -1,13 +1,14 @@
 <script lang="ts">
 	import '../app.css';
 	import {navigating} from "$app/state";
+	 import Navbar from "$lib/shared/Navbar.svelte"
 	
 	let { children } = $props();
 </script>
-
 {#if navigating.to}
-	<div class="loader"></div>
+<div class="loader"></div>
 {/if}
+<Navbar/>
 {@render children()}
 
 <style>

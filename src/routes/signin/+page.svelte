@@ -7,6 +7,9 @@
 
     let { data } = $props();
     let phoneNumber: string = $state("");
+    $inspect(phoneNumber).with(function (_, values){
+        console.table(values)
+    })
     
     let userInformation: Promise<any> = $state() as Promise<any>;
         $inspect(userInformation).with(function (_, values){
@@ -21,8 +24,19 @@
     });
 
 
-    function reload(){  
+    async function reload(){  
         userInformation = fetchUserInformation(localStorage.getItem("token")!);
+    }
+
+    async function submitPhoneNumber() {
+        if (phoneNumber.length < 10) {
+            alert("Phone number must be at least 10 digits");
+            return;
+        }
+        const response = await updatePhoneNumber(localStorage.getItem('token')!, phoneNumber);
+        console.log(data.token!)
+        console.log(response)
+        reload();
     }
 </script>
 
@@ -37,7 +51,7 @@
             <div class="space-y-4">
                 <p>Welcome {user.firstName}</p>
 
-                {#if !user.phoneNumber}
+                {#if true}
                     <div class="space-y-2">
                         <p
                             class="text-lg text-indigo-500 hover:text-indigo-700"
@@ -50,7 +64,7 @@
                                 placeholder="Phone Number"
                                 bind:value={phoneNumber}
                             />
-                            <button class="btn" onclick={() => {updatePhoneNumber(data.token!, phoneNumber); reload()}}>Submit</button>
+                            <button class="btn" onclick={submitPhoneNumber}>Submit</button>
                         </div>
                     </div>
                 {:else}

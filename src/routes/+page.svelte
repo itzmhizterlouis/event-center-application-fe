@@ -1,10 +1,9 @@
 <script lang="ts">
     import {IconSearch} from "@tabler/icons-svelte";
-    import Navbar from "$lib/shared/Navbar.svelte"
+   
 </script>
 
 <!--!This is meant to be the landing page  -->
-<Navbar/>
 <div class="px-4 md:px-8 lg:px-20 xl:px-40 ">
     <!--* Navbar  -->
 

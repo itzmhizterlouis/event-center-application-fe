@@ -40,7 +40,7 @@ export async function createEventCenter(token: string | undefined, eventCenterDa
             'Content-Type': 'multipart/form-data',
         },
     });
-    return response.data;
+    return JSON.parse(response.data);
 }
 
 export async function fetchEventCenters(pageSize: number, pageNumber: number) {
@@ -63,9 +63,10 @@ export async function updatePhoneNumber(token: string | undefined, phoneNumber: 
     const request = getAxiosInstance(token);
     const response = await request.put(`${BASE_URL}/users`, JSON.stringify({ phoneNumber }), {
         headers: {
-            'Content-Type': 'application/json',
+            'Content-Type': 'application/jsonp',
         },
     });
+    console.log(response.data)
     return JSON.parse(response.data);
 }
 
