@@ -8,7 +8,7 @@
     import Loader from "$lib/shared/Loader.svelte";
     import { fetchEventCenters, type EventCenterData, formatNumber, fetchEventCenterByName } from "$lib";
 
-    let centers: Promise<EventCenterData[]> = $state(fetchEventCenters( 10, 0));
+    let centers: Promise<EventCenterData[]> = $state(fetchEventCenters( 20, 0));
     $inspect(centers).with(function (_, value) {
         console.table(value);
     });
@@ -25,7 +25,7 @@
             <button
                 class="btn"
                 onclick={() => {
-                    centers = fetchEventCenterByName(name, 10, 0);
+                    centers = fetchEventCenterByName(name, 20, 0);
                 }}
             >
                 <IconEye />

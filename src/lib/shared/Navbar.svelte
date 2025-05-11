@@ -39,7 +39,7 @@
                 <IconMenu2 class="stroke-indigo-700 size-8" />
             </button>
             <ul in:fade class="md:flex gap-2 hidden xl:gap-8">
-                {#if isValidated}<li class="nav-link"><a href="/dashboard">Dashboard</a></li>{/if}
+                <!-- {#if isValidated}<li class="nav-link"><a href="/dashboard">Dashboard</a></li>{/if} -->
                 <li class="nav-link"><a href="/browse">Browse</a></li>
             </ul>
         </div>
@@ -50,7 +50,7 @@
             </div>
         {:else}
             <div class="hidden md:flex gap-2">
-                <a href="/dashboard" class="btn">Dashboard</a>
+                <!-- <a href="/dashboard" class="btn">Dashboard</a> -->
                 <a href="/setup" class="outline">Add Event Center</a>
             </div>
         {/if}
@@ -61,7 +61,7 @@
                 in:fade
                 class="space-y-6 shadow-indigo-800 shadow-sm mt-2 p-4 fixed bg-slate-50 border-1 border-slate-100 rounded-md w-[91%]"
             >
-                {#if isValidated}<li class="nav-link"><a href="/dashboard">Dashboard</a></li>{/if}
+                <!-- {#if isValidated}<li class="nav-link"><a href="/dashboard">Dashboard</a></li>{/if} -->
                 <li class="nav-link"><a href="/browse">Browse</a></li>
                 <li class="nav-link"><a href="/setup">Setup</a></li>
             </ul>

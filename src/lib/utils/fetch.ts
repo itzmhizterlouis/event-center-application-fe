@@ -7,7 +7,7 @@ const BASE_URL = "https://event-center-backend-production-db60.up.railway.app";
 function getAxiosInstance(token?: string) {
     const headers: Record<string, string> = {};
     if (token) {
-        headers['Authorization'] = `Bearer ${import.meta.env.VITE_BEARER_TOKEN}`;
+        headers['Authorization'] = `Bearer ${token}`;
     }
     return new Axios({
         baseURL: BASE_URL,
@@ -63,7 +63,7 @@ export async function updatePhoneNumber(token: string | undefined, phoneNumber: 
     const request = getAxiosInstance(token);
     const response = await request.put(`${BASE_URL}/users`, JSON.stringify({ phoneNumber }), {
         headers: {
-            'Content-Type': 'application/jsonp',
+            'Content-Type': 'application/json',
         },
     });
     console.log(response.data)

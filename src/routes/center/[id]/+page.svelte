@@ -19,7 +19,7 @@
 
 {#snippet ratings(rating: number)}
     <!-- Renders a star rating component based on the provided rating value (out of 5). -->
-    <div class="flex gap-2">
+    <!-- <div class="flex gap-2">
         {#each { length: rating } as _, index}
             <IconStar class="text-indigo-500 fill-indigo-500" />
         {/each}
@@ -27,7 +27,7 @@
         {#each { length: 5 - rating } as _, index}
             <IconStar class="text-indigo-500" />
         {/each}
-    </div>
+    </div> -->
 {/snippet}
 {#await data then center}
 {@const gallery = center.medias as string[]}
@@ -61,9 +61,9 @@
                 <p class="flex gap-2 font-semibold">
                     <IconCurrencyNaira /> {formatNumber(center.amount)}
                 </p>
-                <p class="flex gap-2 font-semibold">
+                <!-- <p class="flex gap-2 font-semibold">
                     <IconUsersGroup /> 500 guests
-                </p>
+                </p> -->
                 {@render ratings(3)}
                 <div class="flex gap-3">
                     <a class="btn" href="/center/{center.id}/book"
