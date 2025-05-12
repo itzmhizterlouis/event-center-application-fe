@@ -36,7 +36,8 @@
         const response = await updatePhoneNumber(localStorage.getItem('token')!, phoneNumber);
         console.log(data.token!)
         console.log(response)
-        reload();
+        localStorage.setItem("token", response);
+        goto("/browse")
     }
 </script>
 
@@ -51,7 +52,7 @@
             <div class="space-y-4">
                 <p>Welcome {user.firstName}</p>
 
-                {#if true}
+                {#if user.phoneNumber === null}
                     <div class="space-y-2">
                         <p
                             class="text-lg text-indigo-500 hover:text-indigo-700"
